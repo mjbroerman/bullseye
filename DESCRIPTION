@@ -26,7 +26,7 @@ Suggests:
 Config/testthat/edition: 3
 Remotes: 
     github::paleolimbot/geoarrow,
-    github::edgararuiz/callthat/
+    github::edgararuiz/callthat
 VignetteBuilder: knitr
 Depends: 
     R (>= 2.10)

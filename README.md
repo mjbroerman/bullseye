@@ -4,6 +4,9 @@
 # bullseye 🎯
 
 <!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 The goal of bullseye is to make it easy to build and serve
@@ -57,7 +60,7 @@ main_pipeline(base_url = "https://www2.census.gov/geo/tiger/TIGER2021/BG/",
               n_limit = 2,
               save = FALSE) # default is TRUE, but vignettes disallow saving.
 #> Reading layer `tl_2021_01_bg' from data source 
-#>   `/private/var/folders/bp/l5qt50g13sndlz0x48jqqv300000gn/T/RtmpRjEY86/tl_2021_01_bg/tl_2021_01_bg.shp' 
+#>   `/private/var/folders/bp/l5qt50g13sndlz0x48jqqv300000gn/T/Rtmp3mAhLl/tl_2021_01_bg/tl_2021_01_bg.shp' 
 #>   using driver `ESRI Shapefile'
 #> Simple feature collection with 3925 features and 12 fields
 #> Geometry type: MULTIPOLYGON
@@ -65,7 +68,7 @@ main_pipeline(base_url = "https://www2.census.gov/geo/tiger/TIGER2021/BG/",
 #> Bounding box:  xmin: -88.47323 ymin: 30.14442 xmax: -84.88825 ymax: 35.00803
 #> Geodetic CRS:  NAD83
 #> Reading layer `tl_2021_02_bg' from data source 
-#>   `/private/var/folders/bp/l5qt50g13sndlz0x48jqqv300000gn/T/RtmpRjEY86/tl_2021_02_bg/tl_2021_02_bg.shp' 
+#>   `/private/var/folders/bp/l5qt50g13sndlz0x48jqqv300000gn/T/Rtmp3mAhLl/tl_2021_02_bg/tl_2021_02_bg.shp' 
 #>   using driver `ESRI Shapefile'
 #> Simple feature collection with 504 features and 12 fields
 #> Geometry type: MULTIPOLYGON
