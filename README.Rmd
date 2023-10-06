@@ -25,7 +25,7 @@ The goal of bullseye is to make it easy to build and serve point-in-polygon quer
 You can install the development version of bullseye like so:
 
 ``` r
-remotes::install_github("pitt-ptrc/bullseye)
+remotes::install_github("mjbroerman/bullseye)
 ```
 
 ## Example
