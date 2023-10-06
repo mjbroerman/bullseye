@@ -1,0 +1,77 @@
+---
+title: "census"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{census}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(bullseye)
+library(ggplot2)
+library(dplyr)
+
+
+# create db
+poly_db_name <- "test_cen.parquet"
+main_pipeline(base_url = "https://www2.census.gov/geo/tiger/TIGER2021/BG/",
+              filename = poly_db_name,  
+              n_limit = 2,
+              save = FALSE) # default is TRUE, but vignettes disallow saving.
+
+# simulate points
+data("al_coord")
+al_coord |> head()
+
+# load db
+filepath <- system.file("extdata", poly_db_name, package = "bullseye")
+test_db <- geoarrow::read_geoparquet_sf(filepath) |> tibble::glimpse()
+
+# query db
+res <- combined_spatial_join(pts_sf = al_coord,
+                      polys_sf = test_db,
+                      return_col = "GEOID")
+
+res
+
+# query db
+res <- combined_spatial_join(pts_sf = al_coord,
+                      polys_sf = test_db,
+                      prefilter_col = "STATEFP",
+                      return_col = "GEOID")
+
+res
+```
+
+
+
+```{r plot, fig.width=8, fig.height=8}
+res |> 
+  ggplot(aes(color = is.na(GEOID))) +
+  geom_sf() +
+  theme_minimal()
+
+# whoops is the join working?
+
+ids <- res |> 
+  select(GEOID) |> 
+  count(GEOID, sort = TRUE) |> 
+  slice(7:10) |> 
+  pull(GEOID)
+
+res |> 
+  filter(GEOID %in% ids) |> 
+  ggplot(aes(color = GEOID)) +
+  geom_sf() +
+  theme_minimal()
+
+
+```

@@ -1,12 +1,33 @@
 Package: bullseye
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Locate points in polygons
+Version: 0.0.1
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+  person("Matt", "Broerman", , "mjb357@pitt.edu", role = c("aut", "cre"))
+Description: An R package and plumber api for building and serving point-in-polygon queries
+License: MIT + file LICENSE
 Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
+Imports:
+    callthat (>= 0.0.0.9007),
+    dplyr,
+    pkgload,
+    plumber,
+    purrr,
+    rlang,
+    rsgeo,
+    rvest,
+    sf,
+    tibble,
+    tools
 RoxygenNote: 7.2.3
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Remotes:  
+    github::paleolimbot/geoarrow,
+    github::edgararuiz/callthat/
+VignetteBuilder: knitr
+Depends: 
+    R (>= 2.10)
+LazyData: true
